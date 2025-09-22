@@ -1,0 +1,42 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ */
+
+package com.mycompany.stringobject;
+
+/**
+ *
+ * @author theod
+ */
+public class StringObject {
+
+    public static void main(String[] args) {
+    // Create a String object
+    String strTL = new String("Theodore Lang");
+    System.out.println("Hello my name is: " + "\"" + strTL +"\"");
+  
+    //Whats my name in all caps?
+     String strUP = strTL.toUpperCase();
+     System.out.println("My name in uppercase is: " + "\"" + strUP + "\"");
+    
+    //Whats my name in lowercase?
+     String strLW = strTL.toLowerCase();
+     System.out.println("My name in lowercase is: " + "\"" + strLW + "\"");
+    
+    //Character at beginning of my name
+     System.out.println("Char at start = " + strTL.charAt(0));
+    
+    //Character at the end of my name
+     System.out.println("Char at end = " + strTL.charAt(strTL.length() - 1));
+    
+    //What index number is the space between First and Last names
+     System.out.println("Index of space between the names is: " + strTL.indexOf(' '));
+    
+    //What is the total string length?
+     int length = strTL.length();
+        System.out.println("The length of the my name is: " + length);
+    }
+    
+
+    }
+
