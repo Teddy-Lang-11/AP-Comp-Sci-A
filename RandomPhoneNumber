@@ -1,0 +1,94 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ */
+
+package com.mycompany.randomphonenumber;
+
+import java.text.DecimalFormat;
+import java.util.Random;
+import java.util.Scanner;
+
+
+/**
+ *
+ * @author theod
+ */
+public class RandomPhoneNumber {
+
+    public static void main(String[] args) {
+    /*Plan and write a program that generates random phone numbers in the pattern XXX-XXX-XXXX. Include the dashes in the output.
+    Do not let the first 3 digits contain the numbers 8 or 9/
+    Make sure the second set of 3 digits does not go higher than 655 (can include 0s)
+    For a bonus point, place it inside a loop, and when the user presses the letter "p", it will generate a new one.*/
+
+    //Decalre random number generator
+    Random generator = new Random();
+                    
+   //first 3 numbers cannot exceed 7
+     int num1 = generator.nextInt(8);
+     int num2 = generator.nextInt(8);
+     int num3 = generator.nextInt(8);
+      String formatedStart = "" + num1 + num2 + num3;
+        
+    //middle 3 numbers cannot pass 655
+     int middleNumber = generator.nextInt(656);
+     DecimalFormat decimalFormat = new DecimalFormat("000");
+      String formatedMiddle = decimalFormat.format(middleNumber);
+     
+    //last 4 numbers
+     int lastNumber = generator.nextInt(9999);
+     DecimalFormat decimalFormat2 = new DecimalFormat("0000");
+      String formatedEnd = decimalFormat2.format(lastNumber);
+      
+    //Whole Number
+    String formatedNumber = ((formatedStart) + "-" + (formatedMiddle) + "-" + (formatedEnd));
+    
+    //Final Message  
+     System.out.println("A random phone number is: " + formatedNumber);
+     
+    //Scanner Code
+     Scanner scanner = new Scanner(System.in);
+     
+        //code for re-roll or quit
+         while (true){
+         System.out.println("Press 'p' to print another. Press 'q' to quit");
+         
+         //What's the user input?
+          String input;
+            input = scanner.nextLine();
+            //if it is an 'p'
+             if (input.trim().equalsIgnoreCase("p")) {
+                // Redo Randomization
+                    
+                    //first 3 numbers cannot exceed 7
+                     int num11 = generator.nextInt(8);
+                     int num22 = generator.nextInt(8);
+                     int num33 = generator.nextInt(8);
+                      String formatedStartAgain = "" + num11 + num22 + num33;
+        
+                    //middle 3 numbers cannot pass 655
+                     int middleNumber2 = generator.nextInt(656);
+                     DecimalFormat decimalFormat1 = new DecimalFormat("000");
+                      String formatedMiddleAgain = decimalFormat1.format(middleNumber2);
+     
+                    //last 4 numbers
+                     int lastNumber2 = generator.nextInt(9999);
+                     DecimalFormat decimalFormat22 = new DecimalFormat("0000");
+                      String formatedEndAgain = decimalFormat22.format(lastNumber2);
+      
+                    //Whole Number
+                     String formatedNumber2 = ((formatedStartAgain) + "-" + (formatedMiddleAgain) + "-" + (formatedEndAgain));
+              
+                
+                System.out.println("Another phone number: " + formatedNumber2);
+        }
+             //if it is an 'q'
+             else if (input.trim().equalsIgnoreCase("q")) {
+                System.out.println("Goodbye!");
+                
+                break; 
+         }
+    }
+          
+    }
+}
