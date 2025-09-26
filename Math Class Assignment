@@ -1,0 +1,140 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ */
+
+package com.mycompany.mathclass;
+
+import java.util.Random;
+import java.util.Scanner;
+
+
+/**
+ *
+ * @author TLang2026
+ */
+public class MathClass {
+
+    public static void main(String[] args) {
+        /*1) Write a program that generates a random number in the range 0 to 90
+         inclusive. Using the Math class, display the sine, cosine and tangent 
+         for that number, rounded to 3 decimal places,  in the format: 
+         "Number: 45 Sine: 0.851 Cosine: 0.525 Tangent: 1.620" */ 
+            
+            //Code to generate random number:
+             Random generator = new Random();
+              int num1 = generator.nextInt(91);
+               double sinVal = roundAvoid(Math.sin(num1), 3);
+               double cosVal = roundAvoid(Math.cos(num1), 3);
+               double tanVal = roundAvoid(Math.tan(num1), 3);
+            
+            //Print:
+                System.out.println("Question 1:");
+                System.out.println("Number: " + num1 + ". Sine: "+ sinVal + ". Cosine: "+ cosVal + ". Tangent: "+ tanVal);
+                System.out.println(" ");
+           
+        
+        /* 2)Generate another random real number, value 1.0 to 20.0, to generate
+         the radius of a circle. Use  the MathClass to calculate the area of 
+         that circle, as well as the volume of a sphere of that radius, all 
+         rounded to 3 decimal places.*/
+        
+            //Code to generate radius number:
+             double rad2 = generator.nextDouble(19)+1;
+              double roundRad2 = roundAvoid(rad2, 1);
+            
+            //Code for Area:
+            double areaCircle = roundAvoid(Math.PI * roundRad2 * roundRad2, 3 );
+       
+            //Code for Volume:
+            double volumeSphere = roundAvoid((4/3) * areaCircle * roundRad2 , 3);
+            
+            //Print:
+                System.out.println("Question 2:");
+                System.out.println("Circle radius: " + roundRad2 + " Area: " + areaCircle + " Volume: " + volumeSphere );
+                System.out.println(" ");
+                
+             
+        /*3)Generate a random real number in the range 1000.0 to 100,000,000,.0, 
+          and using the Math Class, display that number, it's square root, as 
+          well as it'snatural logarithm and it's Log10 values, all rounded to 
+          5 decimal places.*/
+        
+            //Code for random number:
+            double num31 = 1000.0 + (100000000.0 - 1000.0) * generator.nextDouble();
+            double num3 = roundAvoid(num31, 5);
+            
+            //Code for Square Root:
+             double sqrt3 = roundAvoid(Math.sqrt(num3), 5);
+            
+            //Code for Log 10:
+             double log3 = roundAvoid(Math.log10(num3), 5); 
+             
+            //Code for Natual Log:
+             double ln3 = roundAvoid(Math.log(num3), 5);
+            
+            //Print:
+             System.out.println("Question 3:");
+             System.out.println("Number: " + num3 + " Square Root: " + sqrt3 + " Log10: " + log3 + " Natural Log: " + ln3);
+             System.out.println(" ");
+            
+            
+        /*4)Using the high real number value just generated, calculate the Mass required (in Grams) to generate 
+        that much energy. (E = mc ^2). Hint, if speed of light (c) is in m/s, the mass will be in grams - so assume 
+        your large number is in joules (j). Look up the value of c in m/s. Use the "roundAvoid" method to 
+        output this number to a user defined number of decimal places.*/
+            
+            System.out.println("Question 4:");
+            
+            // need user input for decimal places
+             Scanner scan = new Scanner(System.in);
+              //User input
+                 System.out.println("What decimal place would you like to round to?"); 
+             int userValue = scan.nextInt();
+           
+            //Code using number(as energy) to find mass required.
+            // Speed of light in m/s
+             double c = 2.998e8;
+             
+            //Mass in grams
+             //E = mc^2
+             //So m = E/c*c
+              double m1 = (num3 / (c * c)) * 1000;
+
+            // Round to user-defined places
+             double m = roundAvoid(m1, userValue);
+
+            //Print
+            System.out.println("Mass required: " + m + " grams to generate "+num3+" joules of Energy.");
+           
+        /*5) Use a scanner to get a real number value and an integer input by 
+        the user. Output the value to the power of the integer, using the 
+        Math Class methods, again rounded to a user input number of decimal places. */
+            
+            //Get user inputs
+             System.out.println("Insert a real number: ");
+                double userDbl = scan.nextDouble();
+             System.out.println("Insert an integer: ");
+                int userInt = scan.nextInt();
+             System.out.println("Enter number of decimals places desired to round to: ");
+                int userRound = scan.nextInt();
+                
+            //Mathing it
+              double result = Math.pow(userDbl, userInt);
+              double roundedResult = roundAvoid(result, userRound);
+              
+            //Answer
+             System.out.println(userDbl + " to the power of "+ userInt +" with " + userRound +" decimal places is");
+             System.out.println(roundedResult);
+            
+        //End
+         System.out.println(" ");
+         System.out.println("Goodbye!");
+            
+                
+    }
+    
+    public static double roundAvoid(double value, int places) {
+        double scale = Math.pow(10, places);
+        return Math.round(value * scale) / scale;
+}
+    }
