@@ -1,0 +1,133 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ */
+
+package com.mycompany.numbersformat;
+
+import java.util.Scanner;
+import java.text.NumberFormat;
+import java.util.Locale;
+import java.math.BigDecimal;
+import java.text.DecimalFormat;
+import java.util.Random;
+
+
+/**
+ *
+ * @author theod
+ */
+public class NumbersFormat {
+
+
+    public static void main(String[] args) {
+        /*1) Ask for total number of students at a school (any school). 
+        Now ask for the number of girls at that school. Using Number formatting, 
+        output the % of girls and % of boys at that school.*/
+        //Start
+           System.out.println("Question 1");
+        //Set up for total student input
+            Scanner input = new Scanner(System.in);
+            System.out.print("Enter the total number of students: ");
+             int totalStudents = input.nextInt();
+         
+        //Not girls
+            System.out.print("Enter the number of girls: ");
+             int girls = input.nextInt();
+        
+        //Find boys   
+            int boys = totalStudents - girls;
+
+        //Math it
+            double percentGirls = (double) girls / totalStudents;
+            double percentBoys = (double) boys / totalStudents;
+
+        //Formating for percentages
+            NumberFormat percentFormat = NumberFormat.getPercentInstance();
+            percentFormat.setMaximumFractionDigits(2);
+
+        //Print outputs
+            System.out.println("Percentage of girls: " + percentFormat.format(percentGirls));
+            System.out.println("Percentage of boys: " + percentFormat.format(percentBoys));
+            System.out.println(" ");
+            
+            
+        /*2)Ask for total amout of money in Dollars and Cents. The method must convert 
+        this value to British Pounds (gbp - Exchange rate on 9/26 is 0.75 pence to 1$).
+        Output the number of Pounds, mentioning the exchange rate, in a British 
+        (locale) number format. Do the same for the Euro (86 eCents to 1$ today)*/
+        
+        //Start
+            System.out.println("Question 2:");
+        
+        //Set up for inputs
+            System.out.print("Enter total amount of money in dollars and cents: ");
+             double usd = input.nextDouble();
+        
+        // Exchange Conversions (*For every $1 USD*)
+            double GbpRate = 0.74; 
+            double EuroRate = 0.86; 
+
+        //Math it
+            double gbp = usd * GbpRate;
+            double euro = usd * EuroRate;
+
+        //Format it using NumberFormat
+            NumberFormat GBP = NumberFormat.getCurrencyInstance(Locale.UK);
+            //Some Country that uses Euros (Italy!)
+             NumberFormat EURO = NumberFormat.getCurrencyInstance(Locale.ITALY);
+
+        //Print OutpuT
+            System.out.println("USD: $" + usd);
+            System.out.println("GBP Conversion is (" + GbpRate + " per $): " + GBP.format(gbp));
+            System.out.println("EURO Conversion is (" + EuroRate + " per $): " + EURO.format(euro));
+            System.out.println(" ");
+
+        /*3) Ask for an integer from 0 to 15, and based on the input,
+        format the number Pi (from the Math class) to that number of 
+        decimal places, and print it out appropriately.*/
+        
+        //Start it
+            System.out.println("Question 3:");
+         
+        //User imputs
+        System.out.print("Enter an integer between 0 and 15 for Pi decimal places: ");
+        int number = input.nextInt();
+
+        //String pattern to make the input the decimal place number
+            String decimals = "%." + number + "f";
+        
+        //Print output
+            System.out.println("Pi formatted to " + number + " decimal places: " +
+            String.format(decimals, Math.PI));// ~same as~ (%.nf , Math.PI)
+            System.out.println(" ");
+     
+
+       //4) Generate a random number from 100,000,000 to 999e18as a decimal number (no scientific notation).
+
+       //Start
+        System.out.println("Question 4:");
+
+        //Set up boundaries
+         //My research says use BigDecimal for these large numbers
+            BigDecimal lowerBound = new BigDecimal("100000000");
+           BigDecimal upperBound = new BigDecimal("999e18"); 
+        
+        //Set up randomize
+            Random rand = new Random(); 
+
+        //Random Number
+         /*My research says that this is how you would set it up to do the usual 
+         way of random.nextInt(max - min + 1) + min;*/
+          
+         BigDecimal randomNumber = lowerBound.add( new BigDecimal(rand.nextDouble()).multiply(upperBound.subtract(lowerBound)) ); 
+            
+        //Limit the decimals
+         DecimalFormat df = new DecimalFormat("#.#####");
+         String formattedNumber = df.format(randomNumber);
+   
+        // Print result without scientific notation 
+            System.out.println("Random number: " + formattedNumber);
+            System.out.println("Thanks!");
+
+    }
+}
