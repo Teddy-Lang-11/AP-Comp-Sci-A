@@ -1,0 +1,236 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ */
+
+package com.mycompany.enumeratedtypewrapperclass;
+
+import java.util.Scanner;
+
+/**
+ *
+ * @author TLang2026
+ */
+public class EnumeratedTypeWrapperClass {
+
+    // 1a) create days
+     enum Day {Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday}
+     
+    // 1b) create months
+     enum Month {January, February, March, April, May, June, July, August, September, October, November, December}
+     
+     
+     
+    public static void main(String[] args) {
+        /*1a)  Write a main method that creates an enumeration of the days in the week. Once the enum has been created and 
+        the day in the week variables filled, print them all out, but rather than the zero based ordinals, 
+        print out the days in the week (1-7).*/
+         
+            System.out.println("Question 1a: Days");
+            //Lots of Repetition
+
+             //Sunday 
+             Day one = Day.Sunday;
+             int dayNumber1 = (one.ordinal())+1; 
+             
+             //String it
+              String formatSunday = (one + " = Day " + dayNumber1);
+        
+            //Monday 
+             Day two = Day.Monday;
+             int dayNumber2 = (two.ordinal())+1; 
+             
+             //String it
+              String formatMonday = (two + " = Day " + dayNumber2 + ".");
+         
+            //Tuesday 
+             Day three = Day.Tuesday;
+             int dayNumber3 = (three.ordinal())+1; 
+             
+             //String it
+              String formatTuesday = (three + " = Day " + dayNumber3 + "."); 
+              
+            //Wednesday 
+             Day four = Day.Wednesday;
+             int dayNumber4 = (four.ordinal())+1; 
+             
+             //String it
+              String formatWednesday = (four + " = Day " + dayNumber4 + ".");
+ 
+            //Thrusday 
+             Day five = Day.Thursday;
+             int dayNumber5 = (five.ordinal())+1; 
+             
+             //String it
+              String formatThursday = (five + " = Day " + dayNumber5 + ".");
+              
+            //Friday 
+             Day six = Day.Friday;
+             int dayNumber6 = (six.ordinal())+1; 
+             
+             //String it
+              String formatFriday = (six + " = Day " + dayNumber6 + ".");
+              
+            //Saturday 
+             Day seven = Day.Saturday;
+             int dayNumber7 = (seven.ordinal())+1; 
+             
+             //String it
+              String formatSaturday = (seven + " = Day " + dayNumber7 + ".");
+
+              
+            
+            //Print Outputs
+             System.out.println( formatSunday);
+             System.out.println( formatMonday);
+             System.out.println( formatTuesday);
+             System.out.println( formatWednesday);
+             System.out.println( formatThursday);
+             System.out.println( formatFriday);
+             System.out.println( formatSaturday);
+             System.out.println(" ");
+
+        /*1b) Write a main method that creates an enumeration of the months in the year. Once the enum 
+        has been created and the month variables filled, print them out, but not with the enum ordinals, 
+        but the "month in the year" numbers (1-12).*/
+
+         System.out.println("Question 1b: Months");
+         //More Repetition
+
+            //January
+                Month One = Month.January;
+                int monthNumber1 = (One.ordinal())+1; 
+             
+                //String it
+                 String formatJan = (One + " = Month " + monthNumber1 + ".");    
+              
+            //February
+                Month Two = Month.February;
+                int monthNumber2 = (Two.ordinal())+1; 
+             
+                //String it
+                 String formatFeb = (Two + " = Month " + monthNumber2 + "."); 
+            
+            //March
+                Month Three = Month.March;
+                int monthNumber3 = (Three.ordinal())+1; 
+             
+                //String it
+                 String formatMar = (Three + " = Month " + monthNumber3 + ".");
+              
+            //April
+                Month Four = Month.April;
+                int monthNumber4 = (Four.ordinal())+1; 
+             
+                //String it
+                 String formatApr = (Four + " = Month " + monthNumber4 + "."); 
+              
+            //May
+                Month Five = Month.May;
+                int monthNumber5 = (Five.ordinal())+1; 
+             
+                //String it
+                  String formatMay = (Five + " = Month " + monthNumber5 + "."); 
+              
+            //June
+                Month Six = Month.June;
+                int monthNumber6 = (Six.ordinal())+1; 
+             
+                //String it
+                  String formatJun = (Six + " = Month " + monthNumber6 + "."); 
+               
+            //July
+                Month Seven = Month.July;
+                int monthNumber7 = (Seven.ordinal())+1; 
+             
+                //String it
+                  String formatJul = (Seven + " = Month " + monthNumber7 + ".");
+            
+            //August
+                Month Eight = Month.August;
+                int monthNumber8 = (Eight.ordinal())+1; 
+             
+                //String it
+                  String formatAug = (Eight + " = Month " + monthNumber8 + ".");
+              
+            //September
+                Month Nine = Month.September;
+                int monthNumber9 = (Nine.ordinal())+1; 
+             
+                //String it
+                  String formatSept = (Nine + " = Month " + monthNumber9 + ".");
+              
+            //October
+                Month Ten = Month.October;
+                int monthNumber10 = (Ten.ordinal())+1; 
+             
+                //String it
+                  String formatOct = (Ten + " = Month " + monthNumber10 + ".");
+                  
+            //November
+                Month Eleven = Month.November;
+                int monthNumber11 = (Eleven.ordinal())+1; 
+             
+                //String it
+                  String formatNov = (Eleven + " = Month " + monthNumber11 + ".");
+                  
+            //June
+                Month Twelve = Month.December;
+                int monthNumber12 = (Twelve.ordinal())+1; 
+             
+                //String it
+                  String formatDec = (Twelve + " = Month " + monthNumber12 + ".");
+              
+            //Print answers
+             System.out.println(formatJan);
+             System.out.println(formatFeb);
+             System.out.println(formatMar);
+             System.out.println(formatApr);
+             System.out.println(formatMay);
+             System.out.println(formatJun);
+             System.out.println(formatJul);
+             System.out.println(formatAug);
+             System.out.println(formatSept);
+             System.out.println(formatOct);
+             System.out.println(formatNov);
+             System.out.println(formatDec);
+             System.out.println(" ");
+        
+        
+        /*2) Write a main method which asks for your CCHS username (including graduation year).It must create 
+        a string of the username, as well as a string of the year part (use substring method of String object). 
+        Recall all the years have a length of 4 characters.Use an Integer object to parse the int value of that string. 
+        Have the method print your graduation year, as well as say what the year after your graduation year will be 
+        by adding 1 to the parsed int value.
+        Have it also print "In computer language, you graduate in: " and then the binary string version of your graduation year.*/
+        
+         System.out.println("Question 2: ");
+         
+            //Scanner Inputs
+             Scanner scan = new Scanner(System.in);
+             
+             System.out.println("Enter your CCHS username: ");
+             String fullUsername = scan.nextLine();
+             
+            //Separate Grad Year
+             String GradYear = fullUsername.substring((fullUsername.length()) - 4);
+                    
+                //Convert the sub string to an integer, PARSE
+                 int intGradYear = Integer.parseInt(GradYear);
+                
+            //Print Grad Year
+             System.out.println("The year you graduate is: " + intGradYear);
+                 
+            //Print Year After
+             System.out.println("The year AFTER you graduate is " + (intGradYear + 1));
+             
+            //Computer Language (binary) graduation
+              String binaryYear = Integer.toBinaryString(intGradYear);
+               
+                //Print Binary
+                 System.out.println("The binary representation of your Graduation Year, " + GradYear + " , is: " + binaryYear);
+        
+
+        
+
+    }
+}
