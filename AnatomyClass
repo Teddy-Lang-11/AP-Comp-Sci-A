@@ -1,0 +1,106 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package com.mycompany.anatomyclass;
+
+/**
+ *
+ * @author theod
+ */
+public class Main {
+    /*Write a class called Car that has 1 string variable called carBrand
+    An int variable called enginePower (in Horse Power)
+    A double variable called maxSpeed (in MPH)
+    A double variable called price (in $)
+
+    I suggest you start a control main method in the Main class, 
+    and use this to construct a single car object from the 
+    Car class as you go along, to help debug.
+
+    Write a constructor to produce a base car.
+
+    Write methods to set and get the brand, enginePower, as well as 
+    carSpeed and price
+
+    Write a toString method to print out these details.
+
+    Write a driver method in main to create car types VW Bug, 
+    Toyota Prius, BMW i8, Tesla Model 3, 
+    give them the enginePower and maxSpeed as you wish, 
+    and print these details out.*/
+
+
+    public static void main(String[] args) {
+        // Car Objects
+        Car vwBug = new Car("VW Bug", 90, 90.5, 25000);
+        Car toyotaPrius = new Car("Toyota Prius", 120, 112.3, 28000);
+        Car bmwI8 = new Car("BMW i8", 369, 155.0, 147500);
+        Car teslaModel3 = new Car("Tesla Model 3", 480, 162.0, 49990);
+
+        //Print!!!!
+        System.out.println(vwBug);
+        System.out.println(toyotaPrius);
+        System.out.println(bmwI8);
+        System.out.println(teslaModel3);
+    }
+}
+
+//Now the Car Class
+        //I found out that only one can be a public class***
+class Car {
+    //Set up those names
+     private String carBrand;
+     private int enginePower; // in Horse Power
+     private double maxSpeed; // in MPH
+     private double price;    // in $
+
+    // Constructor Time
+     public Car(String carBrand, int enginePower, double maxSpeed, double price) {
+        this.carBrand = carBrand;
+        this.enginePower = enginePower;
+        this.maxSpeed = maxSpeed;
+        this.price = price;
+    }
+
+    //The returns
+    //BRAND
+    public String getCarBrand() {
+        return carBrand;
+    }
+    public void setCarBrand(String carBrand) {
+        this.carBrand = carBrand;
+    }
+
+    //ENGINE
+    public int getEnginePower() {
+        return enginePower;
+    }
+    public void setEnginePower(int enginePower) {
+        this.enginePower = enginePower;
+    }
+
+    //SPEED
+    public double getMaxSpeed() {
+        return maxSpeed;
+    }
+    public void setMaxSpeed(double maxSpeed) {
+        this.maxSpeed = maxSpeed;
+    }
+
+    //PRICE
+    public double getPrice() {
+        return price;
+    }
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    // toString method
+    public String toString() {
+        return "Car Brand: " + carBrand +
+               "\nEngine Power: " + enginePower + " HP" +
+               "\nMax Speed: " + maxSpeed + " MPH" +
+               "\nPrice: $" + price + "\n";
+    }
+}
