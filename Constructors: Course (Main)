@@ -1,0 +1,96 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ */
+
+package com.mycompany.constructors;
+
+/**
+ *
+ * @author TLang2026
+ */
+
+
+/* Write a class called Course that represents a course 
+offered to students. 
+It should contain instance data that 
+represents the course title (e.g. Computer Science), 
+course code (e,g, AP CS A), pointsTotal, and course Instructor’s name. 
+Define one Course constructor to accept and initialize all instance data. 
+Define a second constructor which accepts course name only.
+Include Accessor (getter) and Mutator (setter) methods for all instance data. 
+Include a toString method that returns a multi-line description of the course. 
+
+Create a driver class called CourseDetails whose
+main method instantiates and updates several Course objects (at least 3).
+At least one course should be created using the full object constructor, and one 
+that uses the name only creator (but has the rest of it's values set by the setter and 
+retrieved by getter methods).
+The main method should then print out each course from the toString.*/
+
+public class Course{
+    //Private Variables
+        private String courseTitle;
+        private String courseCode;
+        private int pointsTotal;
+        private String instructorName;
+    
+    //Set up Constructor
+        public Course(String courseTitle, String courseCode, int pointsTotal, String instructorName){
+            this.courseTitle = courseTitle;
+            this.courseCode = courseCode;
+            this.pointsTotal = pointsTotal;
+            this.instructorName = instructorName;
+        }
+
+    public Course(String courseTitle) {
+            this.courseTitle = courseTitle;
+            this.courseCode = "";
+            this.pointsTotal = 0;
+            this.instructorName = ""; 
+        }
+         
+        //Getters and Setters for other file
+            //Getters
+                public String getCourseTitle(){
+                    return courseTitle; 
+                }
+                public String getCourseCode() {
+                    return courseCode;
+                }
+            
+                public int getPointsTotal() {
+                    return pointsTotal;
+                }
+            
+                public String getInstructorName() {
+                    return instructorName;
+                }
+            
+            //Setters
+                public void setCourseTitle(String courseTitle) {
+                    this.courseTitle = courseTitle;
+                }
+
+                public void setCourseCode(String courseCode) {
+                    this.courseCode = courseCode;
+                }
+
+                public void setPointsTotal(int pointsTotal) {
+                    this.pointsTotal = pointsTotal;
+                }
+
+                public void setInstructorName(String instructorName) {
+                    this.instructorName = instructorName;
+                }
+
+    // Make them multi-line strings
+        @Override
+    public String toString() {
+        return "Course Title: " + courseTitle + " / Course Code: " + courseCode + 
+                " / Points Total: " + pointsTotal + " / Instructor: " + instructorName;
+    }
+}
+
+
+
+
