@@ -1,0 +1,31 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package com.mycompany.constructors;
+
+/**
+ *
+ * @author TLang2026
+ */
+public class CourseDetails {
+     public static void main(String[] args) {
+        // Create one course using the full constructor
+        Course course1 = new Course("AP Computer Science A", "AP CS A", 100, "Dr. Nelson");
+
+        // Create one course using the name-only constructor and set other values later
+        Course course2 = new Course("AP Calculus BC");
+        course2.setCourseCode("Calc BC");
+        course2.setPointsTotal(90);
+        course2.setInstructorName("Mr. Dahms");
+
+        // Create another course using the full constructor
+        Course course3 = new Course("AP Gov", "HIST 201", 85, "Mr. Fillipone");
+
+        // Print details of each course
+        System.out.println(course1.toString());
+        System.out.println(course2.toString());
+        System.out.println(course3.toString());
+    }
+}
+
