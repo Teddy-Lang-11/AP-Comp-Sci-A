@@ -1,0 +1,56 @@
+import java.util.Scanner;
+
+public class LeapYearChecker {
+    public static void main(String[] args) {
+
+//Write a program that reads an integer value from the user rep-
+resenting a year. The purpose of the program is to determine if
+the year is a leap year (and therefore has 29 days in February)
+in the Gregorian calendar. Use a boolean variable isLeapYear for 
+this (initialize to false).  
+
+A year is a leap year if it is divisable by 4, unless it is also 
+divisable by 100 but not 400. For example, the year 2003 is not a leap year, 
+but 2004 is. The year 1900 is not a leap year because it is divisable by 
+100 but not 400, and the year 2000 is a leap year because it is divisable by
+100, and also divisable by 400. Produce an error message for
+any input value less than 1582 (the year the Gregorian calendar
+was adopted).
+
+        // User Input for Year
+         Scanner input = new Scanner(System.in);
+         System.out.print("Enter a year: ");
+         int year = input.nextInt();
+        
+        //THE BOOLEAN
+         boolean isLeapYear = false; 
+        // start by assuming it's not a leap year
+
+        // Year 1582 Check (Gregorian Calendar)
+         if (year < 1582) {
+            System.out.println("Error. Must be after Gregorian Calendar Begins");
+         } 
+         else {
+            // Leap year logic
+             if (year % 4 == 0) {
+                 if (year % 100 == 0) {
+                     if (year % 400 == 0) {
+                         isLeapYear = true; // divisible by 400 → leap year
+                    }
+                } else {
+                    //If the number meets all the requirements above, it is a true leapyear
+                    isLeapYear = true; 
+                }
+            }
+
+            // Show Answer
+             if (isLeapYear) {
+                 System.out.println(year + " is a leap year.");
+             } else {
+                 System.out.println(year + " is not a leap year.");
+             }
+         }
+        //Always got to close it
+         input.close();
+    }
+}
