@@ -1,0 +1,88 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ */
+
+package com.mycompany.mystore;
+
+import java.util.Scanner;
+
+/**
+ *
+ * @author TLang2026
+ */
+public class MyStore {
+
+    //Prompt:
+    /*Write a program (project) called "MyStore"
+    After the public Class MyStore, add another class called "Item"
+    Give the Item Class variables strName and dblPrice.
+    Items: T Shirt - 29.99, Shoes - 125.99, Jeans - 60.99, Jacket - 250.00, Hat - 25.99, Shorts - 75.99, Blouse - 88.99
+    Create a toString method that return the name and price (e.g. "Item: Shoes, Price: 125.99")
+    Add getters and setters to set/return both variables
+    in the MyStore controlling main method, set a colnstant variable MAX_BUDGET to $250.00
+    Ask the user to enter items. If they enter "T Shirt" or whatever, get the price for that item. Add each item's price to a total, and increment a count.
+    After each entry, let them know the count and how much they've spent so far. Set conditional statements so that they cannot go over budget (give a warning if they go over budget).
+
+You can use a while(true) loop for this.*/
+    public static void main(String[] args) {
+        //Create Items
+            item Shirt = new item("T-Shirt", 29.99);
+            item Shoes = new item("Shoes", 125.99);
+            item Jeans = new item("Jeans", 60.99);
+            item Jacket = new item("Jacket", 250.00);
+            item Hat = new item("Hat", 25.99);
+            item Shorts = new item("Shorts", 75.99);
+            item Blouse = new item("Blouse", 88.99);
+        
+        //Scanner
+            Scanner scan = new Scanner(System.in);
+            
+            //Prompt
+                System.out.println("Hello! What would you like to purchase?");
+            
+                
+    }
+    
+}
+
+
+//----------------------------New-Class-----------------------------------------
+
+class item {
+     
+    //Set Up Variables
+        private String strName;
+        private double dblPrice;
+     
+     
+    //Constructor [Framing]
+        public item(String strName, double dblPrice){
+            this.strName = strName;
+            this.dblPrice = dblPrice;
+     }
+        
+    //Getters
+        public String getName(){
+            return strName;
+        }
+        
+        public double getPrice(){
+            return dblPrice;
+        }
+        
+    //Setters
+        public void setName(String strName){
+            this.strName = strName;
+        }
+        
+        public void setPrice(double dblPrice){
+            this.dblPrice = dblPrice;
+        }
+        
+    //toString Method
+        //Must Override it
+        @Override
+        public String toString(){
+            return "Item: " + strName +", Price: " + dblPrice;
+        }
+ }
