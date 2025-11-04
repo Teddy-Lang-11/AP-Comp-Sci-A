@@ -22,33 +22,92 @@ public class MyStore {
     in the MyStore controlling main method, set a colnstant variable MAX_BUDGET to $250.00
     Ask the user to enter items. If they enter "T Shirt" or whatever, get the price for that item. Add each item's price to a total, and increment a count.
     After each entry, let them know the count and how much they've spent so far. Set conditional statements so that they cannot go over budget (give a warning if they go over budget).
-
-You can use a while(true) loop for this.*/
-    public static void main(String[] args) {
-        //Create Items
-            item Shirt = new item("T-Shirt", 29.99);
-            item Shoes = new item("Shoes", 125.99);
-            item Jeans = new item("Jeans", 60.99);
-            item Jacket = new item("Jacket", 250.00);
-            item Hat = new item("Hat", 25.99);
-            item Shorts = new item("Shorts", 75.99);
-            item Blouse = new item("Blouse", 88.99);
-        
-        //Scanner
-            Scanner scan = new Scanner(System.in);
-            
-            //Prompt
-                System.out.println("Hello! What would you like to purchase?");
-            
-                
-    }
+    You can use a while(true) loop for this.*/
     
+    // Create MAximun Budget (Set at 250)
+    public static final double MAX_BUDGET = 250.00;
+
+    public static void main(String[] args) {
+
+        //Create Starting things
+            Scanner input = new Scanner(System.in);
+            double total = 0.0;
+            int count = 0;
+
+        // Predefined store items
+            Item[] items = {
+                new Item("T Shirt", 29.99),
+                new Item("Shoes", 125.99),
+                new Item("Jeans", 60.99),
+                new Item("Jacket", 250.00),
+                new Item("Hat", 25.99),
+                new Item("Shorts", 75.99),
+                new Item("Blouse", 88.99)
+            };
+
+        //Begin Talking
+            System.out.println("Welcome to MyStore!");
+            System.out.println("Your max budget is $" + MAX_BUDGET);
+
+        //Utilize a WHILE 
+        while (true) {
+            System.out.println("Enter an item name (or type STOP to end): ");
+            String choice = input.nextLine();
+
+            if (choice.equalsIgnoreCase("stop")) {
+                break;
+            }
+
+            // Search for the item
+            Item selected = null;
+            for (Item i : items) {
+                if (i.getName().equalsIgnoreCase(choice)) {
+                    selected = i;
+                    break;
+                }
+            }
+            //If it doesn't exist
+                if (selected == null) {
+                    System.out.println("Item not found. Try again.");
+                    System.out.println(" ");
+                    continue;
+                }
+
+            // Check if adding item stays under budget
+                if (total + selected.getPrice() > MAX_BUDGET) {
+                    System.out.println("WARNING: Adding this item will exceed your budget!");
+                    System.out.println("Current total: $" + total);
+                    continue;
+                }
+
+            // It's a valid purchase
+            total += selected.getPrice();
+            count++;
+
+            //Response
+                System.out.println(" ");
+                System.out.println("Added: " + selected.toString());
+                System.out.println("Items purchased: " + count);
+                //Calculates for remainder of capital + prints it
+                    System.out.println("Total spent so far: $" + String.format("%.2f", total));
+            }
+
+        //Ending Text
+            System.out.println(" ");
+            System.out.println("Final total: $" + String.format("%.2f", total));
+            System.out.println("Items purchased: " + count);
+            System.out.println("Thank you for shopping at MyStore!");
+        
+        //Always got to close it
+            input.close();
+    }
 }
+
 
 
 //----------------------------New-Class-----------------------------------------
 
-class item {
+class Item {
      
     //Set Up Variables
         private String strName;
@@ -56,7 +115,7 @@ class item {
      
      
     //Constructor [Framing]
-        public item(String strName, double dblPrice){
+        public Item(String strName, double dblPrice){
             this.strName = strName;
             this.dblPrice = dblPrice;
      }
