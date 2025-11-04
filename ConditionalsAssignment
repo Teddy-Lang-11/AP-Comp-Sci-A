@@ -2,15 +2,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  */
 
-
+package com.mycompany.mystore;
 
 import java.util.Scanner;
 
-/**
- *
- * @author TLang2026
- */
-public class Conditional {
+public class MyStore {
 
     //Prompt:
     /*Write a program (project) called "MyStore"
@@ -34,7 +30,7 @@ public class Conditional {
             double total = 0.0;
             int count = 0;
 
-        // Predefined store items
+        // Predefined store item
             Item[] items = {
                 new Item("T Shirt", 29.99),
                 new Item("Shoes", 125.99),
@@ -46,10 +42,12 @@ public class Conditional {
             };
 
         //Begin Talking
-            System.out.println("Welcome to MyStore!");
+            System.out.println("Welcome to Ted-Mart!");
+            System.out.println(" ");
             System.out.println("Your max budget is $" + MAX_BUDGET);
             System.out.println(" ");
-            System.out.println("These are the items we have: ");
+            System.out.println("These are the items available: ");
+            System.out.println(" ");
             System.out.println("    T Shirt ~ $29.99");
             System.out.println("    Shoes ~ $125.99");
             System.out.println("    Jeans ~ $60.99");
@@ -57,18 +55,18 @@ public class Conditional {
             System.out.println("    Hat ~ $25.99");
             System.out.println("    Shorts ~ $75.99");
             System.out.println("    Blouse ~ $88.99");
-            System.out.println(" ");
 
         //Utilize a WHILE 
         while (true) {
-            System.out.println("Enter an item name (or type STOP to end): ");
+            System.out.println(" ");
+            System.out.println("Enter an item name (or type STOP to check-out): ");
             String choice = input.nextLine();
 
             if (choice.equalsIgnoreCase("stop")) {
                 break;
             }
 
-            // Search for the item
+            // Search for the real item
             Item selected = null;
             for (Item i : items) {
                 if (i.getName().equalsIgnoreCase(choice)) {
@@ -78,36 +76,44 @@ public class Conditional {
             }
             //If it doesn't exist
                 if (selected == null) {
-                    System.out.println("Item not found. Try again.");
+                    System.out.println("Item(s) not found. Try again.");
                     System.out.println(" ");
                     continue;
                 }
 
             // Check if adding item stays under budget
                 if (total + selected.getPrice() > MAX_BUDGET) {
-                    System.out.println("WARNING: Adding this item will exceed your budget!");
-                    System.out.println("*ITEM REMOVED*");
-                    System.out.println("Current total remains: $" + total);
+                    System.out.println(" ");
+                    System.out.println("WARNING: Adding this item will exceed your set $" + MAX_BUDGET + " maximum budget!!!");
+                    System.out.println(" ");
+                    System.out.println("**ITEM REMOVED**");
+                    System.out.println(" ");
+                    System.out.println("Total amount spent: $" + String.format("%.2f", total));
+                    System.out.println("Total amount remaining: $" + String.format("%.2f",(MAX_BUDGET - total)));
+                    System.out.println(" ");
                     continue;
                 }
 
             // It's a valid purchase
-            total += selected.getPrice();
-            count++;
+                total += selected.getPrice();
+                count++;
 
             //Response
                 System.out.println(" ");
                 System.out.println("Added: " + selected.toString());
                 System.out.println("Items purchased: " + count);
-                //Calculates for remainder of capital + prints it
-                    System.out.println("Total spent so far: $" + String.format("%.2f", total));
+                //Calculates for remainder of capital spent & remaining
+                    System.out.println("Total amount spent: $" + String.format("%.2f", total));
+                    System.out.println("Total amount remaining: $" + String.format("%.2f",(MAX_BUDGET - total)));
             }
 
         //Ending Text
             System.out.println(" ");
-            System.out.println("Final total: $" + String.format("%.2f", total));
+            System.out.println("Final amount due: $" + String.format("%.2f", total));
+            System.out.println("Change due: $" + String.format("%.2f",(MAX_BUDGET - total)));
             System.out.println("Items purchased: " + count);
-            System.out.println("Thank you for shopping at TedMart!");
+            System.out.println(" ");
+            System.out.println("Thank you for shopping at Ted-Mart!");
         
         //Always got to close it
             input.close();
@@ -132,22 +138,26 @@ class Item {
      }
         
     //Getters
-        public String getName(){
-            return strName;
-        }
+        //Name
+            public String getName(){
+                return strName;
+            }
         
-        public double getPrice(){
-            return dblPrice;
-        }
+        //Price
+            public double getPrice(){
+                return dblPrice;
+            }
         
     //Setters
-        public void setName(String strName){
-            this.strName = strName;
-        }
+        //Name
+            public void setName(String strName){
+                this.strName = strName;
+            }
         
-        public void setPrice(double dblPrice){
-            this.dblPrice = dblPrice;
-        }
+        //Price
+            public void setPrice(double dblPrice){
+                this.dblPrice = dblPrice;
+            }
         
     //toString Method
         //Must Override it
