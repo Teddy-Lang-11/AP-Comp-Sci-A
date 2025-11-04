@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  */
 
-package com.mycompany.mystore;
+
 
 import java.util.Scanner;
 
@@ -10,7 +10,7 @@ import java.util.Scanner;
  *
  * @author TLang2026
  */
-public class MyStore {
+public class Conditional {
 
     //Prompt:
     /*Write a program (project) called "MyStore"
@@ -48,6 +48,16 @@ public class MyStore {
         //Begin Talking
             System.out.println("Welcome to MyStore!");
             System.out.println("Your max budget is $" + MAX_BUDGET);
+            System.out.println(" ");
+            System.out.println("These are the items we have: ");
+            System.out.println("    T Shirt ~ $29.99");
+            System.out.println("    Shoes ~ $125.99");
+            System.out.println("    Jeans ~ $60.99");
+            System.out.println("    Jacket ~ $250.00");
+            System.out.println("    Hat ~ $25.99");
+            System.out.println("    Shorts ~ $75.99");
+            System.out.println("    Blouse ~ $88.99");
+            System.out.println(" ");
 
         //Utilize a WHILE 
         while (true) {
@@ -76,7 +86,8 @@ public class MyStore {
             // Check if adding item stays under budget
                 if (total + selected.getPrice() > MAX_BUDGET) {
                     System.out.println("WARNING: Adding this item will exceed your budget!");
-                    System.out.println("Current total: $" + total);
+                    System.out.println("*ITEM REMOVED*");
+                    System.out.println("Current total remains: $" + total);
                     continue;
                 }
 
@@ -96,7 +107,7 @@ public class MyStore {
             System.out.println(" ");
             System.out.println("Final total: $" + String.format("%.2f", total));
             System.out.println("Items purchased: " + count);
-            System.out.println("Thank you for shopping at MyStore!");
+            System.out.println("Thank you for shopping at TedMart!");
         
         //Always got to close it
             input.close();
