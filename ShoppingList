@@ -23,18 +23,17 @@ public class ShoppingList {
         //Set up Scanner for user inputs
             Scanner input = new Scanner(System.in);
         
-        //Set up Array List
+        //Set up Array List items
             ArrayList<String> items = new ArrayList<String>();
             
-        //User Input:
+        // 1) User Input:
             System.out.println("Hello! Please add items to your shopping list!");
             System.out.println(" ");
-            System.out.print("Enter items one by one (or type DONE when finished):");
+            System.out.print("Enter items one by one (then type DONE when finished):");
             System.out.println(" ");
     
             while (true) {
-                System.out.println("Enter item (or done to end): ");
-                System.out.println(" ");
+                System.out.println("Enter an item (or done to end): ");
                 /*User types item
                     Set up string for list*/
                         String item;
@@ -46,47 +45,52 @@ public class ShoppingList {
                     //if not, add item to the list
                         items.add(item);
                 }
+             
+            // Empty List Response
+                if (items.isEmpty()) {
+                    System.out.println("No items added!!!");
+                        return;
+                }
             
         //Print out list
             System.out.println("Here is your shopping list:");
+            System.out.println("Number of items: " + items.size());
             displayList(items);
     
-        /*Item Remove
+        /* 3) Item Remove
             Prompt user for removal of items*/
                 if (!items.isEmpty()) {
                     System.out.println(" ");
-                    System.out.print("Enter the number of the item to remove (or type 0 to end): ");
+                    System.out.print("Enter the number of an item to remove (or type 0 to end): ");
                         int removeIndex = input.nextInt();  
 
-            // Adjust for item index including zero
-                if (removeIndex > 0 && removeIndex <= items.size()) {
-                    String removedItem = items.remove(removeIndex - 1);
-                    System.out.println("Removed: " + removedItem);
+            /* Adjust for item index including zero
+                Reasearched this aswell*/
+                    if (removeIndex > 0 && removeIndex <= items.size()) {
+                        String removedItem = items.remove(removeIndex - 1);
+                        System.out.println("Removed: " + removedItem);
                     
-                }
                     }
+                }
                 
-        //Re-show Updated List
+        // 4) Re-show Updated List
+            System.out.println(" ");
             System.out.println("Updated Shopping List:");
+            System.out.println("Number of items: " + items.size());
             displayList(items);
                
-        //End Inputs when code finishes
+        // 5) End Inputs when code finishes
             input.close();
 }
         /*Had to research hwo to display items with numbers in list.
-        This part not only helps with the numbering, but also fixes the
-        'Display List' issues I was having previously.*/
+            This part not only helps with the numbering, but also 
+            fixes the 'Display List' issues I was having previously.*/
     
             public static void displayList(ArrayList<String> list) {
                 for (int i = 0; i < list.size(); i++) {
-            System.out.println((i + 1) + ". " + list.get(i));
+                    //Display the correct number + item   
+                        System.out.println((i + 1) + ". " + list.get(i));
                 }
             }
 
 }
-
-
-
-
-
-
