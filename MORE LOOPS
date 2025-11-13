@@ -1,0 +1,134 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ */
+
+package com.mycompany.moreloops;
+
+/**
+ *
+ * @author TLang2026
+ */
+public class MoreLoops {
+    /*Create modified versions of the Stars program to print the fol-
+        lowing patterns. Hint: Parts b, c, and d require several loops, some of which
+        print a specific number of spaces.
+    
+            a. 
+            **********
+            *********
+            ********
+            *******
+            ******
+            *****
+            ****
+            ***
+            **
+            *
+
+
+            b.
+                     *
+                    **
+                   ***
+                  ****
+                 *****
+                ******
+               *******
+              ********
+             *********
+            **********
+
+
+            c. 
+            ********** 
+             *********
+              ********
+               *******
+                ******
+                 *****
+                  ****
+                   ***
+                    **
+                     *
+
+
+            d.
+                *
+               ***
+              *****
+             *******
+            *********
+            *********
+             *******
+              *****
+               ***
+                *       */
+
+    public static void main(String[] args) {
+        
+        //Row Amount Defined
+            final int MAX_ROWS = 10;
+        
+        //Start loop A
+            System.out.println("a.");
+        
+            //for each row
+            for (int row = 1; row <= MAX_ROWS; row++)
+            {
+            //print out the appropriate number of stars for that row
+                for (int star = 1; star <= MAX_ROWS - row; star++){
+                    System.out.print("*");
+            }
+            //new line for a new row
+                System.out.println();
+            }
+                
+        //Loop B
+            System.out.println(" ");
+            System.out.println(" ");
+            System.out.println("b.");
+            
+            //for each row
+                for (int row = 1; row <= MAX_ROWS; row++)
+            {
+            //print out the appropriate number of stars for that row
+                for (int star = 1; star >= MAX_ROWS; star--){
+                    System.out.print("*");
+            }
+            //new line for a new row
+                System.out.println();
+            }
+                
+        /*//Loop C
+            System.out.println(" ");
+            System.out.println(" ");
+            System.out.println("c.");
+            
+            //for each row
+                for (int row = 1; row <= MAX_ROWS; row++)
+            {
+            //print out the appropriate number of stars for that row
+                for (int star = 1; star <= MAX_ROWS; star++){
+                    System.out.print("*");
+            }
+            //new line for a new row
+                System.out.println();
+            } */
+        
+        /*//Loop D
+            System.out.println(" ");
+            System.out.println(" ");
+            System.out.println("b.");
+
+            //for each row
+                for (int row = 1; row <= MAX_ROWS; row++)
+            {
+            //print out the appropriate number of stars for that row
+                for (int star = 1; star <= MAX_ROWS; star++){
+                    System.out.print("*");
+            }
+            //new line for a new row
+                System.out.println();
+            } */
+    }
+}
