@@ -72,14 +72,14 @@ public class MoreLoops {
         //Start loop A
             System.out.println("a.");
         
-            //for each row
+            //Declare
             for (int row = 1; row <= MAX_ROWS; row++)
             {
-            //print out the appropriate number of stars for that row
-                for (int star = 1; star <= MAX_ROWS - row; star++){
+            //Print out the appropriate number of stars for that row
+                for (int star = 1; star <= MAX_ROWS - row + 1; star++){
                     System.out.print("*");
             }
-            //new line for a new row
+            //New line for a new row
                 System.out.println();
             }
                 
@@ -88,47 +88,77 @@ public class MoreLoops {
             System.out.println(" ");
             System.out.println("b.");
             
-            //for each row
+            //Declare it all
                 for (int row = 1; row <= MAX_ROWS; row++)
             {
-            //print out the appropriate number of stars for that row
-                for (int star = 1; star >= MAX_ROWS; star--){
+            //Print for spaces count
+                for(int space = 1; space <= MAX_ROWS - row; space++){
+                    System.out.print(" ");
+                }
+            //Print out the appropriate number of stars for that row
+                for (int star = 1; star <= row; star++){
                     System.out.print("*");
             }
-            //new line for a new row
+            //New line for a new row
                 System.out.println();
             }
                 
-        /*//Loop C
+        //Loop C
             System.out.println(" ");
             System.out.println(" ");
             System.out.println("c.");
             
             //for each row
-                for (int row = 1; row <= MAX_ROWS; row++)
-            {
-            //print out the appropriate number of stars for that row
-                for (int star = 1; star <= MAX_ROWS; star++){
+                for (int row = MAX_ROWS; row >= 1; row--)
+            { 
+           //Print for spaces count
+                for(int space = 1; space <= MAX_ROWS - row; space++){
+                    System.out.print(" ");
+                }
+            //Print out the appropriate number of stars for that row
+                for (int star = 1; star <= row; star++){
                     System.out.print("*");
             }
-            //new line for a new row
+            //New line for a new row
                 System.out.println();
-            } */
-        
-        /*//Loop D
+            }
+                
+        //Loop D
             System.out.println(" ");
             System.out.println(" ");
-            System.out.println("b.");
+            System.out.println("d.");
 
-            //for each row
-                for (int row = 1; row <= MAX_ROWS; row++)
-            {
-            //print out the appropriate number of stars for that row
-                for (int star = 1; star <= MAX_ROWS; star++){
-                    System.out.print("*");
-            }
-            //new line for a new row
-                System.out.println();
-            } */
+            //Top Half
+                //for each row
+                    for (int row = 1; row <= 0; row +=2)
+                { 
+               //Print for spaces count
+                    for(int space = 1; space <= (9 - row)/2; space++){
+                        System.out.print(" ");
+                    }
+                //Print out the appropriate number of stars for that row
+                    for (int star = 1; star <= row; star++){
+                        System.out.print("*");
+                }
+                //New line for a new row
+                    System.out.println();
+                }
+                    
+            //Bottom Half
+                //for each row
+                    for (int row = 9; row >= 1; row -=2)
+                { 
+               //Print for spaces count
+                    for(int space = 1; space <= (9 - row)/2; space++){
+                        System.out.print(" ");
+                    }
+                //Print out the appropriate number of stars for that row
+                    for (int star = 1; star <= row; star++){
+                        System.out.print("*");
+                }
+                //New line for a new row
+                    System.out.println();
+                }
     }
 }
+ 
