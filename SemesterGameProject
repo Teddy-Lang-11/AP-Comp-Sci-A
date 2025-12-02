@@ -1,0 +1,58 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ */
+
+package com.mycompany.semestergameproject;
+
+
+import java.util.Random;
+import java.util.Scanner;
+        
+/**
+ *
+ * @author TLang2026
+ */
+public class SemesterGameProject {
+    //Middle Middle
+    public static void main(String[] args) {
+        
+    }
+}
+
+//-----------------------New-Class----------------------------------------------
+
+/*class Game(
+    ONE BIG LOOP
+        Prompts to play y/n
+            if yes - start game
+            if no - quit program/Loop
+            else - 'enter valid input'
+        
+        Game Starts...
+        Deal 2 Cards (USE CardGen Class)(A & B)
+        
+        Ask User, 'Will next card be between these two?' y/n
+
+            If yes - take 100 from 'wallet (1000)'
+                If true - add 200 to 'wallet (1100)'
+                If false - add 0 tp 'wallet (900)'
+            
+            If no - take 100 from 'wallet (1000)'
+                If true - add 200 to 'wallet (1100)'
+                If false - add 0 t0 'wallet (900)'
+     
+    LOOP
+) */
+        
+//-----------------------New-Class----------------------------------------------
+
+/*class CardGen (Regardless of Suit)(Ace[1]-King[13])
+
+    Card A
+        Randomly generated number 1-13
+            Assigned to a card
+
+    Card B
+        Randomly generated number 1-13
+            Assigned to a card
+ ) */
