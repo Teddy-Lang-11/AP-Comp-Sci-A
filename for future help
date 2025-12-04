@@ -1,0 +1,116 @@
+package com.mycompany.semestergameproject;
+
+import java.util.Random;
+import java.util.Scanner;
+
+public class SemesterGameProject {
+    public static void main(String[] args) {
+        
+        Scanner input = new Scanner(System.in);
+
+        System.out.println("Ready to Start? (y/n)");
+        String r1 = input.nextLine();
+
+        if (r1.equalsIgnoreCase("y")) {
+            System.out.println("Input Detected.");
+            Game newGame = new Game();
+            newGame.start();
+        } 
+        else if (r1.equalsIgnoreCase("n")) {
+            System.out.println("Input Detected. Exiting game...");
+        } 
+        else {
+            System.out.println("Please enter either y or n.");
+        }
+    }
+}
+
+// -----------------------New-Class----------------------------------------------
+
+class Game {
+
+    Scanner input = new Scanner(System.in);
+    int wallet = 1000;
+
+    public void start() {
+
+        System.out.println("--- Starting the Game! ---");
+
+        boolean playing = true;
+
+        while (playing && wallet > 0) {
+
+            System.out.println("\nWallet: $" + wallet);
+            System.out.println("Dealing two cards...");
+
+            CardGen c = new CardGen();
+            int cardA = c.getCardA();
+            int cardB = c.getCardB();
+
+            System.out.println("Card A = " + cardA);
+            System.out.println("Card B = " + cardB);
+
+            System.out.println("Will the next card be BETWEEN these two? (y/n)");
+            String guess = input.nextLine();
+
+            // Always costs 100 to play
+            wallet -= 100;
+
+            // Generate the next card
+            int nextCard = c.getCard();
+            System.out.println("Next Card is: " + nextCard);
+
+            // Determine lower/higher for comparison
+            int low = Math.min(cardA, cardB);
+            int high = Math.max(cardA, cardB);
+
+            boolean isBetween = nextCard > low && nextCard < high;
+
+            if (guess.equalsIgnoreCase("y") && isBetween) {
+                System.out.println("Correct! You win $200!");
+                wallet += 200;
+            } 
+            else if (guess.equalsIgnoreCase("n") && !isBetween) {
+                System.out.println("Correct! You win $200!");
+                wallet += 200;
+            } 
+            else {
+                System.out.println("Wrong! You win $0.");
+            }
+
+            System.out.println("Play again? (y/n)");
+            String again = input.nextLine();
+
+            if (!again.equalsIgnoreCase("y")) {
+                playing = false;
+            }
+        }
+
+        System.out.println("Game over! Final wallet amount: $" + wallet);
+    }
+}
+
+// -----------------------New-Class----------------------------------------------
+
+class CardGen {
+
+    Random deal = new Random();
+
+    // Generate card A
+    private int cardA = deal.nextInt(13) + 1;  // 1–13
+    // Generate card B
+    private int cardB = deal.nextInt(13) + 1;  // 1–13
+
+    public int getCardA() {
+        return cardA;
+    }
+
+    public int getCardB() {
+        return cardB;
+    }
+
+    // Generate a fresh card each time
+    public int getCard() {
+        return deal.nextInt(13) + 1;
+    }
+}
