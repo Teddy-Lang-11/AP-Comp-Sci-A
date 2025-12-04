@@ -4,55 +4,115 @@
 
 package com.mycompany.semestergameproject;
 
-
-import java.util.Random;
-import java.util.Scanner;
+//Imports
+    import java.util.Random;
+    import java.util.Scanner;
         
 /**
  *
  * @author TLang2026
  */
+
 public class SemesterGameProject {
-    //Middle Middle
     public static void main(String[] args) {
+    
+
+    //Declarations
+        Scanner input = new Scanner(System.in);
+       
         
+        //Prompts to play y/n
+            System.out.println("Ready to Start?(y/n)");
+                //Set up string for user responses
+                        String r1; //where r1 is the first instance of user input
+                            r1 = input.nextLine();
+            //yes - start game
+                if (r1.equalsIgnoreCase("y")){
+                    System.out.println("Input Detected.");
+                //Create an object of the Game class
+                    Game newGame = new Game();
+                        newGame.start();
+                }
+            //no - quit program/Loop
+                else if (r1.equalsIgnoreCase("n")) {
+                        System.out.println("Input Detected.");     
+                        }
+                
+            //other
+                else System.out.println("Please enter either y or n");
+                   
+            
     }
 }
 
 //-----------------------New-Class----------------------------------------------
 
-/*class Game(
-    ONE BIG LOOP
-        Prompts to play y/n
-            if yes - start game
-            if no - quit program/Loop
-            else - 'enter valid input'
+class Game{        
+    public void start() {
+       
         
-        Game Starts...
-        Deal 2 Cards (USE CardGen Class)(A & B)
-        
-        Ask User, 'Will next card be between these two?' y/n
+    //Declarations
+        Scanner input = new Scanner(System.in);
+        int wallet = 1000;
 
-            If yes - take 100 from 'wallet (1000)'
-                If true - add 200 to 'wallet (1100)'
-                If false - add 0 tp 'wallet (900)'
-            
-            If no - take 100 from 'wallet (1000)'
-                If true - add 200 to 'wallet (1100)'
-                If false - add 0 t0 'wallet (900)'
+        
+        //Game Starts...
+            System.out.println("--- Starting the Game! ---");
      
-    LOOP
-) */
+        
+        // Deal 2 Cards (USE CardGen Class)(A & B)
+        
+        //Ask User, 'Will next card be between these two?' y/n
+
+            //If yes - take 100 from 'wallet (1000)'
+                //If true - add 200 to 'wallet (1100)'
+                //If false - add 0 tp 'wallet (900)'
+            
+            //If no - take 100 from 'wallet (1000)'
+                //If true - add 200 to 'wallet (1100)'
+                //If false - add 0 t0 'wallet (900)'
+     
+    }
+}
         
 //-----------------------New-Class----------------------------------------------
 
-/*class CardGen (Regardless of Suit)(Ace[1]-King[13])
+class CardGen{ //(Regardless of Suit)(Ace[1]-King[13])
+    
+    
+    //Declarations
+        Random deal = new Random();
+    
 
-    Card A
-        Randomly generated number 1-13
-            Assigned to a card
+    //Card A
+        //Randomly generated value (1-13)
+            int valCardA = deal.nextInt(13) + 1; //Makes range 0-12 but then adds 1
+        //Randomly generated card suit (1-4)
+            int suitCardA = deal.nextInt(4) + 1; //Makes range 0-3 but then adds 1
+          
+        
 
-    Card B
-        Randomly generated number 1-13
-            Assigned to a card
- ) */
+
+    //Card B
+        //Randomly generated value (1-13)
+            int valCardB = deal.nextInt(13) + 1;
+        //Randomly generated card suit (1-4)
+            int suitCardB = deal.nextInt(4) + 1;
+}
+
+//-----------------------New-Class----------------------------------------------
+
+/*class CardAssign{
+    //Card A
+     //Card A Value
+        if card 
+
+     //Card A Suit
+
+    //Card B
+     //Card B Value
+
+     //Card B Suit
+   
+
+}*/
