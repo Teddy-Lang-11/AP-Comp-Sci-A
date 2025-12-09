@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  */
 
-package com.mycompany.semestergameproject;
+package com.mycompany.semesterproject;
 
 //Imports
     import java.util.Random;
@@ -13,7 +13,7 @@ package com.mycompany.semestergameproject;
  * @author TLang2026
  */
 
-public class SemesterGameProject {
+public class SemesterProject {
     public static void main(String[] args) {
     
 
@@ -101,11 +101,14 @@ class Game{
                 /*see if it is really in the middle or not
                     RESEARCH THIS */
                     int lowCard = Math.min(cardA, cardB);
-                    int highCard = Math.min(cardA, cardB);
+                    int highCard = Math.max(cardA, cardB);
                 
                 /*Boolean expression to compare card c to the min & max
+                    OR IF SAME
                     RESEARCH*/
                      boolean isBetween = cardC > lowCard && cardC < highCard;
+                     boolean isEquals = cardC == lowCard || cardC == highCard;
+
                 
                     //yes + true :)
                         if (userGuess.equalsIgnoreCase("y") && isBetween) {
@@ -133,17 +136,33 @@ class Game{
                         }
                         
                     //yes + false :(
-                        else if (userGuess.equalsIgnoreCase("n") && !isBetween) {
+                        else if (userGuess.equalsIgnoreCase("y") && !isBetween) {
                             //LOSE ~ add 0 to wallet 
                                 System.out.println(" ");
                                 System.out.println("Incorrect! You lost $100!");
                                 System.out.println("Wallet: $" + wallet);
                         }
+                    
+                    //If it is same as a boundary card:
+                        //Yes :/
+                        else if (userGuess.equalsIgnoreCase ("y")  && isEquals) {
+                            System.out.println(" ");
+                            System.out.println("Wow! Same card! You lost $100! /nBetter luck next time!");
+                            System.out.println("Waller: $" + wallet);
+                        }
+                        
+                        //No :/
+                        else if (userGuess.equalsIgnoreCase ("n")  && isEquals) {
+                            System.out.println(" ");
+                            System.out.println("Wow! Same card! You lost $100! /nBetter luck next time!");
+                            System.out.println("Waller: $" + wallet);
+                        }
+                        
                         
                        
             //Prompt to play again
                 System.out.println(" ");
-                System.out.println("Maybe another round...");
+                System.out.println("Perhaps another round?...");
                 System.out.println(" ");
                 System.out.println("Play again? (y/n)");
                     String userContinue = input.nextLine();
@@ -217,17 +236,16 @@ class CardGen{ //(Regardless of Suit)(Ace[1]-King[13])
 //-----------------------New-Class----------------------------------------------
 
 /*class CardAssign{
-    //Card A
-     //Card A Value
-        //if card
-
-     //Card A Suit
-
-    //Card B
-     //Card B Value
-
-     //Card B Suit
-   
-
+    public String getCardName(int value) {
+        //Switch to change values into text for certain instances
+            switch (value) {
+                case 1:  return "Ace [1]";
+                case 11: return "Jack [11]";
+                case 12: return "Queen [12]";
+                case 13: return "King [13]";
+                default: return String.valueOf(value);
+            }
+    }
 }
+
 */
