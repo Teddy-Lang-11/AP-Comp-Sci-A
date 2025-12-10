@@ -90,8 +90,36 @@ class Game{
                     System.out.println("Will the next card be between these two? y/n");
                     String userGuess = input.nextLine();
 
-                    //Take 100 out to start (Default bet amount)
-                        wallet -= 100;
+                    
+                //Bet Code
+                
+                int bet = 0;
+                
+                    //Ask user for bet 
+                        while (true) {
+                            System.out.println("Enter your bet amount:");
+    
+                        if (input.hasNextInt()) {
+                            bet = input.nextInt();
+                                input.nextLine(); // consume leftover newline
+        
+                        if (bet > 0 && bet <= wallet) {
+                            break; // valid bet, exit loop
+                        }
+                             else {
+                                System.out.println("Bet must be between $1 and $" + wallet + ".");
+                            }
+                        
+                            } else {
+                                System.out.println("Please enter a valid number.");
+                                input.nextLine(); // clear invalid input
+                            }
+                        }
+                 
+
+            
+                    //Take out bet
+                        wallet -= bet;
                         
                 //Show User the card C
                     int cardC = c.getCardC();
@@ -114,8 +142,8 @@ class Game{
                         if (userGuess.equalsIgnoreCase("y") && isBetween) {
                             //WIN ~ add 200 to wallet 
                                 System.out.println(" ");
-                                System.out.println("Correct! You win $100!");
-                                    wallet += 200;
+                                System.out.println("Correct! You win $" + bet + " !");
+                                    wallet += (bet * 2);;
                                 System.out.println("Wallet: $" + wallet);
                         }
                         
@@ -123,15 +151,15 @@ class Game{
                         else if (userGuess.equalsIgnoreCase("n") && !isBetween) {
                             // WIN ~ add 200 to wallet
                                 System.out.println(" ");
-                                System.out.println("Correct! You win $100!");
-                                    wallet += 200;
+                                System.out.println("Correct! You win $" + bet + " !");
+                                    wallet += (bet * 2);
                                 System.out.println("Wallet: $" + wallet);
                         }
                         
                     //no + false :(
                         else if (userGuess.equalsIgnoreCase("n") && isBetween) {
                                 System.out.println(" ");
-                                System.out.println("Incorrect! You lost $100!");
+                                System.out.println("Incorrect! You lost $" + bet + " !");
                                 System.out.println("Wallet: $" + wallet);
                         }
                         
@@ -139,7 +167,7 @@ class Game{
                         else if (userGuess.equalsIgnoreCase("y") && !isBetween) {
                             //LOSE ~ add 0 to wallet 
                                 System.out.println(" ");
-                                System.out.println("Incorrect! You lost $100!");
+                                System.out.println("Incorrect! You lost $" + bet + " !");
                                 System.out.println("Wallet: $" + wallet);
                         }
                     
@@ -147,14 +175,14 @@ class Game{
                         //Yes :/
                         else if (userGuess.equalsIgnoreCase ("y")  && isEquals) {
                             System.out.println(" ");
-                            System.out.println("Wow! Same card! You lost $100! /nBetter luck next time!");
-                            System.out.println("Waller: $" + wallet);
+                            System.out.println("Wow! Same card! You lost $" + bet + " ! Better luck next time!");
+                            System.out.println("Wallet: $" + wallet);
                         }
                         
                         //No :/
                         else if (userGuess.equalsIgnoreCase ("n")  && isEquals) {
                             System.out.println(" ");
-                            System.out.println("Wow! Same card! You lost $100! /nBetter luck next time!");
+                            System.out.println("Wow! Same card! You lost $" + bet + " ! Better luck next time!");
                             System.out.println("Waller: $" + wallet);
                         }
                         
@@ -234,18 +262,3 @@ class CardGen{ //(Regardless of Suit)(Ace[1]-King[13])
 }
 
 //-----------------------New-Class----------------------------------------------
-
-/*class CardAssign{
-    public String getCardName(int value) {
-        //Switch to change values into text for certain instances
-            switch (value) {
-                case 1:  return "Ace [1]";
-                case 11: return "Jack [11]";
-                case 12: return "Queen [12]";
-                case 13: return "King [13]";
-                default: return String.valueOf(value);
-            }
-    }
-}
-
-*/
