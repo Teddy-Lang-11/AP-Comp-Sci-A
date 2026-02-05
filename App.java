@@ -2,49 +2,116 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  */
 
-package com.mycompany.sideddiegenerator;
+package com.mycompany.darraysassignment;
 
 import java.util.Random;
-import java.util.Scanner;
 
 /**
  *
- * @author theod
+ * @author TLang2026
  */
+
+/*DIRECTIONS:
+    Write a 2D String array called deckOfCards. This will have 4 arrays, each of length 13. 
+Fill the 4 arrays with the 4 suits of playing cards, from Ace to King (1 to 13). Shuffle 
+the deck, and deal out 4 hands of 5 cards from this 2D array (no dealing the same card twice). 
+Show the hands (Diamonds, Hearts, Clubs, Spades).*/
+
 public class App {
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        Random generator = new Random();
+        //Set up the Array Values
+            int rows = 4;
+            int columns = 13;
+            
+            String[][] Deck = new String[rows][columns]; //4 wide - 13 long
+            
+                //Specific Values
+                    String[] suit = {"Hearts", "Diamonds", "Clubs", "Spades"};
+                    String[] value = {"Ace", "2", "3", "4", "5", "6", "7",
+                        "8", "9", "10", "Jack", "Queen", "King"};
         
-        //Generate a number 1-6
-        int numDie = generator.nextInt(6) + 1;
+        //Add them into the Array [Researched :) ]
+            for (int i = 0; i < Deck.length; i++) {        // for the suits
+                for (int j = 0; j < Deck[i].length; j++) { // for the cards
+                    Deck[i][j] = value[j] + " of " + suit[i]; 
+                }
+            }
         
-        //print out number
-        System.out.println("*Dice rolls*");
-        System.out.println("     " + numDie);
-        System.out.println(" ");
+        //Print unshuffled deck [Researched :) ]
         
-        //code for re-roll or quit
-         while (true){
-         System.out.println("Press 'r' to re-roll. Press 'q' to quit");
-         
-         //What's the user input?
-          String input;
-            input = scanner.nextLine();
-            //if it is an 'r'
-             if (input.trim().equalsIgnoreCase("r")) {
-                // Redo Roll
-                int diceRoll = generator.nextInt(6) + 1;
-                System.out.println("*Dice Rolls*");
-                System.out.println("     " + diceRoll);
+            // Step: Create a 4 x 14 display grid
+            String[][] displayGridA = new String[4][14];
+
+            for (int i = 0; i < 4; i++) {
+                displayGridA[i][0] = suit[i]; // suit label
+                for (int j = 1; j <= 5; j++) {
+                    displayGridA[i][j] = Deck[i][j - 1];
+                }
+                for (int j = 6; j < 14; j++) {
+                    displayGridA[i][j] = Deck[i][j - 1];
+                }
+            }
+            
+            System.out.println("--Unshuffled Deck--");
+        for (int i = 0; i < displayGridA.length; i++) {
+            for (int j = 0; j < displayGridA[i].length; j++) {
+                System.out.printf("%-20s", displayGridA[i][j]);
+            }
+            System.out.println();
         }
-             //if it is an 'q'
-             else if (input.trim().equalsIgnoreCase("q")) {
-                System.out.println("Goodbye!");
-                
-                break; 
-         }
-    }
+            /*System.out.println("Unshuffled Deck!!!");
+            for (int i = 0; i < Deck.length; i++) {
+            for (int j = 0; j < Deck[i].length; j++) {
+                System.out.println(Deck[i][j]);
+            }
+            }
+*/
+//----------------------------------------------------------------------------
+/*
+        // Hands (4 hands, 5 cards each)
+        String[][] hands = new String[4][5];
+        Random rand = new Random();
+
+        // Deal cards (no duplicates)
+        for (int i = 0; i < hands.length; i++) {
+            int dealt = 0;
+            while (dealt < 5) {
+                int s = rand.nextInt(4);
+                int r = rand.nextInt(13);
+
+                if (Deck[s][r] != null) {
+                    hands[i][dealt] = Deck[s][r];
+                    Deck[s][r] = null;
+                    dealt++;
+                }
+            }
+        }
+
+        // Step: Create a 4 x 14 display grid
+        String[][] displayGrid = new String[4][14];
+
+        for (int i = 0; i < 4; i++) {
+            displayGrid[i][0] = suit[i]; // suit label
+            for (int j = 1; j <= 5; j++) {
+                displayGrid[i][j] = hands[i][j - 1];
+            }
+            for (int j = 6; j < 14; j++) {
+                displayGrid[i][j] = "";
+            }
+        }
+
+        // Print the grid
+        System.out.println("\nRandomized!\n");
+        for (int i = 0; i < displayGrid.length; i++) {
+            for (int j = 0; j < displayGrid[i].length; j++) {
+                System.out.printf("%-20s", displayGrid[i][j]);
+            }
+            System.out.println();
+        }
+*/    
+
 }
 }
+
+    
