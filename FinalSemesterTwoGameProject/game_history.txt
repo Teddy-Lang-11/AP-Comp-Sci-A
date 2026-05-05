@@ -1,0 +1,2 @@
+Round 1 | Bet: 99 | Won: 0 | Balance: 1
+Round 2 | Bet: 1 | Won: 0 | Balance: 0 | GAME OVER
